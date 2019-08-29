@@ -1,0 +1,290 @@
+
+// 定义常用的类
+@for $i from 1 through 20 {
+  // 字体大小 .f8 - f20
+  @if ($i >= 8) {
+    .f#{$i} {
+      font-size: ($i * 1px);
+    }
+  }
+  // 左外边距 .ml1 - .ml20 下同
+  .ml#{$i} {
+    margin-left: ($i * 1px);
+  }
+  // 右外边距
+  .mr#{$i} {
+    margin-right: ($i * 1px);
+  }
+  // 上外边距
+  .mt#{$i} {
+    margin-top: ($i * 1px);
+  }
+  // 下外边距
+  .mb#{$i} {
+    margin-bottom: ($i * 1px);
+  }
+  // 做内边距
+  .pl#{$i} {
+    padding-left: ($i * 1px);
+  }
+  // 右内边距
+  .pr#{$i} {
+    padding-right: ($i * 1px);
+  }
+  // 上内边距
+  .pt#{$i} {
+    padding-top: ($i * 1px);
+  }
+  // 下内边距
+  .pb#{$i} {
+    padding-bottom: ($i * 1px);
+  }
+}
+// 行内元素水平居中
+.text-c {
+  text-align: center;
+}
+// 行内块元素
+.inline {
+  display: inline-block;
+}
+// 超出显示省略号
+.ell {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*--全局样式--*/
+html,body{height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch;font-family:-apple-system-font,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;}
+body{font-size:14px;color:#262626;-webkit-touch-callout: none;-webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0px;padding:0px;}
+h1, h2, h3, h4, h5, h6 {font-size:100%;font-weight:normal;}
+section, article, aside, header, footer, nav, dialog, figure {display: block;}a{color:#262626;text-decoration:none; outline:none;}
+img{border:0; vertical-align:middle;max-width:100%;}
+img[src=""]{opacity:0;}
+ul,ol{list-style:none;}
+a,button,input{-webkit-tap-highlight-color:rgba(255,255,255,0);-webkit-appearance:none;}
+button{ background: none; border:none;}
+select{appearance:none;
+-moz-appearance:none;
+-webkit-appearance:none;}
+input:-webkit-autofill {
+box-shadow: 0 0 0px 1000px white inset;
+-webkit-box-shadow: 0 0 0px 1000px white inset;
+// border: 1px solid #fff!important;
+}
+.clear{clear:both;content:"";display: block;}
+.c_b::after{clear:both;content:"";display: block;}
+/*--美化滚动条--*/
+::-webkit-scrollbar{width: 6px;height: 15px;}
+::-webkit-scrollbar-track{background: 0 0;}
+::-webkit-scrollbar-thumb{background-color: #ccc;border-radius: 5px;}
+::-webkit-scrollbar-thumb:hover {background-color:#666}
+::-webkit-scrollbar-corner{background-color:#535353}
+::-webkit-scrollbar-resizer{background-color:#FF6E00}
+body::-webkit-scrollbar {width: 8px}
+body::-webkit-scrollbar-thumb {background-color:#ddd;}
+/* input\button高度 */
+.el-input__inner,.el-button{
+  height:35px;
+  line-height:35px;
+}
+.el-input__icon{
+  line-height:35px;
+}
+.el-button{
+ padding:0px 16px;
+}
+.el-button+.el-button{
+  margin-left:0px;
+}
+.el-range-editor.el-input__inner{
+  padding:0px 8px;
+}
+.el-form-item.is-success .el-input__inner, .el-form-item.is-success .el-input__inner:focus, .el-form-item.is-success .el-textarea__inner, .el-form-item.is-success .el-textarea__inner:focus{
+  border-color:#29cccc;
+}
+.el-dropdown-menu{
+  padding:5px 0; 
+}
+.el-dropdown-menu__item{
+  line-height:30px;
+}
+.card-box{
+  background-color:#fff;
+  margin-bottom:16px;
+  padding:16px;
+  border-radius:4px;
+  .green{
+    color:#67c23a
+  }
+  .orange{
+    color:#e6a23c;
+  }
+  .red{
+    color:#f56c6c;
+  }
+  .blue {
+    color: rgb(0, 110, 255);
+  }
+  .cur {
+    cursor: pointer;
+  }
+
+}
+/* 带快捷方式的日期选择器 */
+.has-sidebar{
+  .el-picker-panel__sidebar{width:60px;}
+  .el-picker-panel__body{margin-left:60px}
+  .el-popper[x-placement^=bottom] .popper__arrow{left:22px;}
+}
+/* 搜索框 */
+.search-bar {
+  background: #fff;
+  border-radius: 4px;
+  display:flex;
+  justify-content:space-between;
+  .el-select,.el-input,.el-button,.el-range-editor,.el-input-number{
+    margin-right:16px;
+  }
+  .el-select,.el-input,.el-input-number{
+    width:180px;
+  }
+  .el-date-editor--daterange.el-input__inner{
+    width: 280px;
+  }
+  .el-range-editor.el-input__inner{
+    padding: 0 15px;
+    margin-right: 16px;
+  }
+  .date_title{
+    font-size: 14px;
+    line-height: 35px;
+    margin-right: 16px;
+  }
+  .el-button{
+    margin-bottom:16px;
+  }
+  .search-left{
+    display:flex;
+    flex-wrap: wrap;
+    .search-item{
+      margin-bottom:16px;
+      .search-label {
+        display: inline-block;
+        min-width: 85px;
+        text-align:justify;
+        text-align-last: justify;
+      }
+      &.number-box{
+        .el-input-number{
+          width:120px;
+          ~label{
+            margin-right:16px;
+          }
+          .el-input{
+            width:120px;
+          }
+        }
+      }
+    }
+  }
+  .search-right{
+    .el-button{
+      &:last-child{
+        margin-right:0;
+      }
+    }
+  }
+}
+/* 表格 */
+.table-box{
+  table{
+    th,td{
+       padding:8px 0px;
+    }
+    thead{
+      th{
+        background-color:#f8f8f9;
+        color:rgba(0,0,0,.85);
+      }
+    }
+    tbody{
+      td{
+        .init-text{
+          color:#e87b7b;
+          cursor: pointer;
+        }
+        .success,.green{
+          color:#67c23a
+        }
+        .warning,.orange{
+          color:#e6a23c;
+        }
+        .error,.red{
+          color:#f56c6c;
+        }
+        .el-button--text{
+          padding:0px 8px;
+          &:hover{
+            text-decoration:underline
+          }
+        }
+      }
+    }
+  }
+  //expand折叠
+  .el-table__expanded-cell[class*=cell]{
+    padding:10px 50px;
+    background:rgba(168,226,226,0.15);
+    &:hover{
+      background:rgba(168,226,226,0.15) !important;
+    }
+  }
+  .table-expand {
+    font-size: 0;
+    label{
+      min-width: 75px;
+      color: #99a9bf;
+      padding:0;
+    }
+    .el-form-item{
+      margin:0px;
+      width:20%;
+      .el-form-item__label,.el-form-item__content{
+        line-height:32px;
+      }
+    }
+  }
+}
+/* 分页 */
+.page-box{
+  display:flex;
+  justify-content:flex-end;
+  padding:16px 16px 0px;
+}
+/* loading */
+.loading-box{
+  .el-loading-spinner{
+    i{
+      font-size:24px;
+      color:#fff;
+    }
+    .el-loading-text{
+      color:#fff;
+    }
+  }
+  .el-loading-spinner .path{
+    stroke: #fff;
+  }
+}
+/* 弹窗公共底部 */
+.dialog-footer{
+  text-align:center;
+  .el-button{
+    margin:0px 16px;
+  }
+}
