@@ -1,13 +1,18 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/views/Home.vue";
-
+import Index from '@/views/Index.vue'
 Vue.use(Router);
-
+const IndexRoute = {
+  path: '/',
+  component: Index,
+  children: []
+}
 export default new Router({
   routes: [
+    IndexRoute,
     {
-      path: "/",
+      path: "/home",
       name: "home",
       component: r => require.ensure([],() => r(require('@/views/Home.vue'),'Home'))
     },
