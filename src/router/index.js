@@ -1,14 +1,22 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/views/Home.vue";
-import Index from '@/views/Index.vue'
+import Index from '@/views/Index.vue';
+import allRouters from './components/index'
 Vue.use(Router);
 const IndexRoute = {
   path: '/',
   component: Index,
   children: []
 }
-export default new Router({
+IndexRoute.children=[...allRouters];
+let first = IndexRoute.children.length>0?IndexRoute.children[0].path:'/login'
+IndexRoute.redirect = first;
+
+
+
+
+let router=new Router({
   routes: [
     IndexRoute,
     {
@@ -27,3 +35,13 @@ export default new Router({
     }
   ]
 });
+router.beforeEach((to, from, next) => {
+ /**    
+  * 路由拦截
+  * 
+  */
+ console.log(to)
+ next()
+
+})
+export default  router
